@@ -1,0 +1,4 @@
+repository "jin3@ssl://wangguozhijian123@sh03-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/1045674187" 
+     
