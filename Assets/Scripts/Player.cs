@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform m_transform;
-    CharacterController m_ch;//½ÇÉ«¿ØÖÆÆ÷×é¼þ
-    float m_moveSpeed=3.0f;//½ÇÉ«ÒÆ¶¯ËÙ¶È
-    float m_gravity = 2.0f;//ÖØÁ¦
+    CharacterController m_ch;//ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    float m_moveSpeed=3.0f;//ï¿½ï¿½É«ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
+    float m_gravity = 2.0f;//ï¿½ï¿½ï¿½ï¿½
     public int m_life = 5;
     Transform m_camTransform;
 
@@ -34,12 +34,12 @@ public class Player : MonoBehaviour
         m_transform = this.transform;
         m_camTransform = Camera.main.transform;
 
-        m_mullzepoint = m_camTransform.FindChild("M16/weapon/muzzlepoint").transform;
+        m_mullzepoint = m_camTransform.Find("M16/weapon/muzzlepoint").transform;
 
         m_ch = this.GetComponent<CharacterController>();
-        //»ñÈ¡ÉãÏñ»ú
+        //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½
         
-        //ÉèÖÃÉãÏñ»ú³õÊ¼Î»ÖÃ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Î»ï¿½ï¿½
         m_camTransform.position = m_transform.TransformPoint(0, m_camHeight, 0);
         m_camTransform.rotation = m_transform.rotation;
         m_camRot = m_camTransform.eulerAngles;
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         {
             m_shootTimer = 0.1f;
             this.GetComponent<AudioSource>().PlayOneShot(m_audio);
-            //¼õÉÙµ¯Ò©£¬¸üÐÂUI
+            //ï¿½ï¿½ï¿½Ùµï¿½Ò©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI
             Gamemanager.Instance.SetAmmo(1);
             RaycastHit info;
             bool hit = Physics.Raycast(m_mullzepoint.position, m_camTransform.TransformDirection(Vector3.forward), out info, m_layer);
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
             }
             Instantiate(m_fx, info.point, info.transform.rotation);
         }
-        //Èç¹ûÉúÃüÖµÎª0£¬Ê²Ã´Ò²²»×ö
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª0ï¿½ï¿½Ê²Ã´Ò²ï¿½ï¿½ï¿½ï¿½
         if(m_life<=0)
         {
             return;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         
     }
 
-    void Control()//¿ØÖÆ´úÂë
+    void Control()//ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
     {
         float rh = Input.GetAxis("Mouse X");
         float rv = Input.GetAxis("Mouse Y");
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         Vector3 motion = Vector3.zero;
         motion.x = Input.GetAxis("Horizontal") * m_moveSpeed * Time.deltaTime;
         motion.z = Input.GetAxis("Vertical") * m_moveSpeed * Time.deltaTime;
-        motion.y -= m_gravity * Time.deltaTime;//ÖØÁ¦
+        motion.y -= m_gravity * Time.deltaTime;//ï¿½ï¿½ï¿½ï¿½
         m_ch.Move(m_transform.TransformDirection(motion));
         m_camTransform.position = m_transform.TransformPoint(0, m_camHeight, 0);
 

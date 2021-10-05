@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Gamemanager.cs" />
+    <Compile Include="Assets\Scripts\MiniCamera.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/wzc/xiangmu/unity/jin3/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
